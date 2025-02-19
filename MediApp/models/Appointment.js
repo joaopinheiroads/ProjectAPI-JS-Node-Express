@@ -1,23 +1,45 @@
-import {mongoose} from 'mongoose';                                                  // Import the mongoose module
+import { mongoose } from "mongoose";
+import Pacient from "./Pacient.js";
+import Doctor from "./Doctor.js";
 
-const Schema = mongoose.Schema;                                                     // Create a schema object
-const appointmentSchema = new Schema({                                              // Create a new schema object
-   
+const Schema = mongoose.Schema;
+
+const appointmentSchema = new Schema ({
     date: {
-        type: Date, 
-        required: [true, 'Appointment Date is required']},      // Define the date field
+        type: Date,
+        required: [true, 'Appointment Date is required.']
+    },
     doctorId: {
-        type: String, 
-        required: [true, 'Appointment Doctor is required']},    // Define the doctor field  
+        type: String,
+        required: [true, 'DoctorId is required.'],
+        validate: {
+            validator: function (v){
+                const id = new mongoose.Types.ObjectId(v); // convertendo uma string em objeto ID para ser encontrado no banco
+                return Doctor.exists({_id: id});
+            },
+            message: props =>
+             `DoctorID ${props.value} not found.` 
+        }
+    },
     pacientId: {
-        type: String, 
-        required: [true, 'Appointment Pacient is required']},    // Define the pacient field
-              
+        type: String,
+        required: [true, 'PacientId is required.'],
+        validate: {
+            validator: function (v){
+                const id = new mongoose.Types.ObjectId(v); // convertendo uma string em objeto ID para ser encontrado no banco
+                return Pacient.exists({_id: id});
+            },
+            message: props =>
+             `PacientID ${props.value} not found.` 
+        }
+    },
     createdAt: {
         type: Date,
-        default: Date.now},                                     // Define the createdAt field
-});
+        default: Date.now
+    }
+}
+);
 
-const appointment = mongoose.model('Appointment', appointmentSchema); // Create a model object
+const appointment = mongoose.model('Appointment', appointmentSchema);
 
-export default appointment;                                           // Export the model object
+export default appointment;

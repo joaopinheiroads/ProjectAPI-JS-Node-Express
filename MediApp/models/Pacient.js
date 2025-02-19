@@ -1,32 +1,38 @@
-// Init the Pacient model
-import {mongoose} from 'mongoose';                                                  // Import the mongoose module
+import { mongoose } from "mongoose";
 
-const Schema = mongoose.Schema;                                                     // Create a schema object
-const pacientSchema = new Schema({                                              // Create a new schema object
+const Schema = mongoose.Schema;
 
+const pacientSchema = new Schema ({
     name: {
-        type: String, 
-        required: [true, 'Pacient name is required']},      // Define the name field
-        
-   
+        type: String,
+        required: [true, 'Pacient name is required.']
+    },
     birthDate: {
-        type: Date, 
-        required: [true, 'Pacient birthDate is required']},      // Define the date field
-    phoneNumber: {
-        type: String, 
-        required: [true, 'Pacient number is required']},    // Define the doctor field   
-        
+        type: Date,
+        required: [true, 'Birth Date is required.']
+    },
     email: {
-            type: String, 
-            required: [true, 'Email is required'],          // Define the email field
-            unique:true
-        },
-    
+        type: String,
+        required: [true, 'Email contact is required.']
+    },
+    phone: {
+        type: String,
+        required: [true, 'Phone number is required.'],
+        validate: {
+            validator: function (v) {
+                return /\d{2} 9\d{4}-\d{4}/.test(v);
+            },
+            message: props =>
+             `${props.value} This is not a valid phone value. Please use the following format 99 91234-4567`
+        }
+    },
     createdAt: {
         type: Date,
-        default: Date.now},                                     // Define the createdAt field
-});
+        default: Date.now
+    }
+}
+);
 
-const pacient = mongoose.model('Pacient', pacientSchema); // Create a model object
+const pacient = mongoose.model('Pacient', pacientSchema);
 
-export default pacient;                                           // Export the model object
+export default pacient;

@@ -1,53 +1,52 @@
-// Initialize the Doctor model object
-import {mongoose} from 'mongoose';                         // Import the mongoose module
+import { mongoose } from "mongoose";
 
-const Schema = mongoose.Schema;                           // Create a schema object
-const doctorSchema = new Schema({                         // Create a new schema object
-   
-    doctorId: {
-        type: String, 
-        required: [true, 'DoctorID is required']},       // Define the doctor field
-        
-    name: { 
-        type: String, 
-        required: [true, 'Name is required']},          // Define the name field
-     
-    login: {    
-        type: String, 
-        required: [true, 'Login is required'],         // Define the login field
-        unique:true
-    },    
+const Schema = mongoose.Schema;
+
+const doctorSchema = new Schema ({
+    name: {
+        type: String,
+        required: [true, 'Doctor name is required.']
+    },
+    login: {
+        type: String,
+        required: [true, 'Login is required.'],
+        unique: true
+    },
     password: {
-        type: String, 
-        required: [true, 'Password is required']},      // Define the password field   
-        
-    medicalSpeciality: { 
-        type: String, 
-        required: [true, 'Medical Speciality is required']}, // Define the medicalSpeciality field
-    
-    medicalRegistration: {  
-        type: String, 
-        required: [true, 'Medical Registration is required'], // Define the medicalRegistration field
-        unique:true
+        type: String,
+        required: [true, 'Password is required.']
     },
-
+    medicalSpecialty: {
+        type: String,
+        required: [true, 'Medical Specialty is required.']
+    },
+    medicalRegistration: {
+        type: String,
+        required: [true, 'Medical Registration is required.'],
+        unique: true
+    },
     email: {
-        type: String, 
-        required: [true, 'Email is required'],          // Define the email field
-        unique:true
+        type: String,
+        required: [true, 'Email contact is required.']
     },
-
     phone: {
-        type: String, 
-        required: [true, 'Phone is required'],          // Define the phone field
-        
+        type: String,
+        required: [true, 'Phone number is required.'],
+        validate: {
+            validator: function (v) {
+                return /\d{2} 9\d{4}-\d{4}/.test(v);
+            },
+            message: props =>
+             `${props.value} This is not a valid phone value. Please use the following format 99 91234-4567`
+        }
     },
-
     createdAt: {
         type: Date,
-        default: Date.now},                             // Define the createdAt field
-});
+        default: Date.now
+    }
+}
+);
 
-const doctor = mongoose.model('Doctor', doctorSchema); // Create a model object
+const doctor = mongoose.model('Doctor', doctorSchema);
 
-export default doctor;                            // Export the model object
+export default doctor;
