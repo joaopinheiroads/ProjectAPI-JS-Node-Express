@@ -25,7 +25,7 @@ MediApp é um sistema de gerenciamento de consultas médicas, pacientes, médico
 
 1. Clone o repositório:
    ```sh
-   git clone https://github.com/seu-usuario/mediapp.git
+   git clone https://github.com/joaopinheiroads/ProjectAPI-JS-Node-Express.git
 
 2. Instale as dependências:
 
@@ -34,7 +34,7 @@ MediApp é um sistema de gerenciamento de consultas médicas, pacientes, médico
 
 3. Inicie o servidor(dentro da pasta MediApp):
 
-  npm start
+  npm start ou npm run dev
 
 4. Acesse a aplicação em http://localhost:3001.
 
