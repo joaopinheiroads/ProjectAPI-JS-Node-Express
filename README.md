@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ProgramaçaoII
 Esse repositório tem como principal objetivo guardar os códigos das aulas práticas da disciplina para aprimorar suas habilidades em vários tópicos, incluindo a criação e consumo de APIs com controle de autenticação utilizando NodeJS e utilizando boas práticas de programação e mercado.
 
@@ -74,3 +75,53 @@ Para contribuir, siga estas etapas:
 5. Crie a solicitação de pull.
 
 Como alternativa, consulte a documentação do GitHub em [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+=======
+# MediApp
+
+MediApp é um sistema de gerenciamento de consultas médicas, pacientes, médicos e prescrições. Este projeto foi desenvolvido como parte da disciplina de Programação II.
+
+![ConsultorioMedico-drawio](https://github.com/user-attachments/assets/26e756a6-d62f-4c36-bf6d-cd0f3d50708a)
+
+
+## Funcionalidades
+
+- **Gerenciamento de Médicos**: Cadastro, atualização, listagem e exclusão de médicos.
+- **Gerenciamento de Pacientes**: Cadastro, atualização, listagem e exclusão de pacientes.
+- **Gerenciamento de Consultas**: Agendamento, atualização, listagem e cancelamento de consultas.
+- **Gerenciamento de Prescrições**: Criação, atualização, listagem e exclusão de prescrições médicas.
+- **Autenticação**: Login de médicos com geração de token JWT.
+- **Hash de senhas**: Senhas salvas no banco de dados através de Hash.
+
+## Tecnologias Utilizadas
+
+- **Node.js**: Plataforma de desenvolvimento.
+- **Express**: Framework para construção da API.
+- **MongoDB**: Banco de dados NoSQL.
+- **Mongoose**: ODM para MongoDB.
+- **JWT**: Autenticação via JSON Web Tokens.
+  
+
+
+## Como Executar
+
+1. Clone o repositório:
+   ```sh
+   git clone https://github.com/joaopinheiroads/ProjectAPI-JS-Node-Express.git
+
+  
+
+2. Instale as dependências utilizando "npm install" dentro da pasta "medi-app" e dentro da pasta "src" em terminais diferentes para conseguir executar os passos posteriores:
+
+ 
+ 
+
+
+3. Inicie o servidor(dentro da pasta MediApp e dentro da pasta src):
+
+  npm start ou npm run dev
+
+4. Acesse a aplicação em http://localhost:3001.
+
+# Para realizar testes em softwares como Insomnia e Postman há um arquivo JSON para fazer os testes da API na pasta "tests" dentro do MediApp
+
+>>>>>>> c1d30a91c636cd8538376d510787d221b38b2d3b
