@@ -2,6 +2,9 @@
 
 MediApp é um sistema de gerenciamento de consultas médicas, pacientes, médicos e prescrições. Este projeto foi desenvolvido como parte da disciplina de Programação II.
 
+![ConsultorioMedico-drawio](https://github.com/user-attachments/assets/26e756a6-d62f-4c36-bf6d-cd0f3d50708a)
+
+
 ## Funcionalidades
 
 - **Gerenciamento de Médicos**: Cadastro, atualização, listagem e exclusão de médicos.
@@ -27,12 +30,15 @@ MediApp é um sistema de gerenciamento de consultas médicas, pacientes, médico
    ```sh
    git clone https://github.com/joaopinheiroads/ProjectAPI-JS-Node-Express.git
 
-2. Instale as dependências:
+  
 
-  cd mediapp
-  npm install
+2. Instale as dependências utilizando "npm install" dentro da pasta "medi-app" e dentro da pasta "src" em terminais diferentes para conseguir executar os passos posteriores:
 
-3. Inicie o servidor(dentro da pasta MediApp):
+ 
+ 
+
+
+3. Inicie o servidor(dentro da pasta MediApp e dentro da pasta src):
 
   npm start ou npm run dev
 
